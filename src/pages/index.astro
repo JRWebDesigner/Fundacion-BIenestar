@@ -34,7 +34,7 @@ const featuresSection = {
     features: featureLists.main.features,
     button: {
         text: "Mas informacion",
-        link: "/theme-info",
+        link: "/#sobre-nosotros",
         variant: "primary" as const
     }
 }
@@ -46,7 +46,7 @@ const FooterCta = {
     hideCta: false,
     button: {
         text: 'Unete a la causa',
-        link: '/',
+        link: 'https://wa.link/b2okpa',
         target: '_blank'
     }
 }
@@ -62,7 +62,7 @@ const styleGuideSection = {
     buttons: [
         {
             text: "Contactate ahora",
-            link: "/",
+            link: "/#contacto",
             variant: "primary" as const
         }
     ]
@@ -114,4 +114,36 @@ const recentPostsSection = {
     <Hero content={heroContent} />
     <Features content={featuresSection} padding="base" background="light" />
     <SplitPanel content={styleGuideSection} imagePosition="right" background="light" padding="base" />
+    <div class="pt-10 md:px-20" id='sobre-nosotros'>
+        <h2>
+            Sobre Nosotros    
+        </h2>
+        <p>
+            En nuestra experiencia en el desarrollo e implementación de programas de salud visual ocupacional, dirigidos al sector privado, ayudamos a muchas familias de bajos ingresos... pero nos dimos cuenta de que no era suficiente. Había comunidades donde las necesidades eran aún mayores, y ahí es donde decidimos actuar
+        </p>
+        <p>
+            Todo comenzó cuando entendimos que teníamos que ir lejos para ver cerca. Fuimos a las comunidades, caminamos por sus calles, escuchamos a sus habitantes y descubrimos sus necesidades reales.
+        </p>
+        <p>
+            Así nació la Fundación Bienestar, con el compromiso de mejorar la calidad de vida de las comunidades a través de salud, educación y deporte.
+            </p> 
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 p-10">
+            <div>
+                <h3>
+                    Mision
+                </h3>
+                <p>
+                    Contribuir de forma integral a mejorar la salud y calidad de vida de las comunidades mediante el desarrollo y ejecución de diversos proyectos en salud, educación y deporte.
+                </p>
+            </div>
+            <div>
+                <h3>
+                    Vision
+                </h3>
+                <p>
+                    Convertirnos en una entidad referente en el desarrollo y empoderamiento de comunidades en términos de salud y bienestar.
+                </p>
+            </div>
+        </div>
+    </div>
 </Layout>
