@@ -1,0 +1,15 @@
+<script>
+    let audio;
+  
+    function playAudio() {
+      audio = new Audio('/audio.mpeg');
+      audio.loop = true;  // Repetir en bucle
+      audio.volume = 0.5; // Volumen al 50%
+      audio.play().catch(error => {
+        console.log("Autoplay bloqueado por el navegador");
+      });
+    }
+  
+    // Ejecutar el audio al cargar la página
+    window.addEventListener('load', playAudio);
+  </script>
