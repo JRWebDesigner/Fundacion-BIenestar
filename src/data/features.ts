@@ -22,7 +22,7 @@ export const featureLists: Record<string, FeatureList> = {
             {
                 icon: Smile,
                 title: 'Salud',
-                description: 'campañas medicas, atencion visual, vacunaciones'
+                description: 'campañas medicas, atención visual, programas de salud integrales'
             },
             {
                 icon: Shield,
