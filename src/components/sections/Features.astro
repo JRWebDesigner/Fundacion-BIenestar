@@ -90,13 +90,9 @@ const paddingClass = getPaddingClass({
                     data-aos-delay={index * 100}
                 >
                     <div class:list={[
-                        "w-12 h-12 flex items-center justify-center rounded-lg mb-4",
-                        "bg-primary"
+                        "w-[300px] h-[200px] flex items-center justify-center rounded-lg mb-4"
                     ]}>
-                        <feature.icon
-                            size={24}
-                            class="text-white"
-                        />
+                        <img class='w-full h-full' src={feature.icon} alt="linea" />
                     </div>
                     <h3 class:list={["text-h4 mb-2", textColor]}>
                         {feature.title}
