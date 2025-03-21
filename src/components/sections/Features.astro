@@ -82,7 +82,7 @@ const paddingClass = getPaddingClass({
             {features.map((feature, index) => (
                 <div 
                     class:list={[
-                        "p-6 rounded-lg border border-black",
+                        "p-6 rounded-lg border border-black w-[400px] h-[400px] flex justify-center items-center",
                         background === 'dark' ? 'bg-background-base/10' : 'bg-background/90',
                         "flex flex-col"
                     ]}
@@ -90,7 +90,7 @@ const paddingClass = getPaddingClass({
                     data-aos-delay={index * 100}
                 >
                     <div class:list={[
-                        "w-[300px] h-[200px] flex items-center justify-center rounded-lg mb-4"
+                        "w-[90%] h-[200px] flex items-center justify-center rounded-lg mb-4"
                     ]}>
                         <img class='w-full h-full' src={feature.icon} alt="linea" />
                     </div>
