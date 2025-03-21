@@ -51,12 +51,12 @@ const textColor = getTextColor(background);
     <div class="site-container px-4">
         <div class:list={[
             "flex gap-16 items-center",
-            "md:grid-cols-[0.5fr_1fr]",
+            "",
             imagePosition === 'left' ? 'md:grid-cols-[1fr_1fr]' : ''
         ]}>
             <!-- Image Side -->
             {imagePosition === 'left' && (
-                <div class="relative aspect-[4/3] overflow-hidden rounded-[var(--border-radius-base)] border border-black">
+                <div class="relative w-[70%] overflow-hidden rounded-[var(--border-radius-base)] border border-black">
                     <img
                         src="./hero2.jpeg"
                         alt='fundacion bienestar bolivia'
@@ -96,11 +96,11 @@ const textColor = getTextColor(background);
 
             <!-- Image Side (right position) -->
             {imagePosition === 'right' && (
-                <div class="relative aspect-[4/3] overflow-hidden rounded-[var(--border-radius-base)] border border-black" data-aos="fade-up" data-aos-delay="100">
+                <div class="relative w-[70%] overflow-hidden rounded-[var(--border-radius-base)] border border-black" data-aos="fade-up" data-aos-delay="100">
                     <img
                         src="./hero2.jpeg"
                         alt='fundacion bienestar bolivia'
-                        class="w-full h-full object-cover"
+                        class="w-full h-full object-contain"
                     />
                 </div>
             )}
