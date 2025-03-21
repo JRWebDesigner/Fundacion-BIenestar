@@ -50,8 +50,8 @@ const textColor = getTextColor(background);
 <section class:list={["relative", bgColor, paddingClass]}>
     <div class="site-container px-4">
         <div class:list={[
-            "grid gap-16 items-center",
-            "md:grid-cols-2",
+            "flex gap-16 items-center",
+            "md:grid-cols-[0.5fr_1fr]",
             imagePosition === 'left' ? 'md:grid-cols-[1fr_1fr]' : ''
         ]}>
             <!-- Image Side -->
@@ -60,7 +60,7 @@ const textColor = getTextColor(background);
                     <img
                         src="./hero2.jpeg"
                         alt='fundacion bienestar bolivia'
-                        width={800}
+                        width={1000}
                         height={600}
                         class="w-full h-full object-cover"
                     />
