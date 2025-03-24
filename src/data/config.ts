@@ -1,5 +1,5 @@
 export const siteConfig = {
-  companyName: 'Fundacion Bienestar',
+  companyName: 'Fundacion Bienestar Bolivia',
   siteUrl: 'https://fundacionbienestarbolivia.com',
   Socials: {
       Email: 'support@titan-core.com',
@@ -10,8 +10,8 @@ export const siteConfig = {
 
 export const SEO = {
   Separator: '|',
-  SiteName: 'Fundacion Bienestar',
-  defaultDescription: 'Fundacion Bienestar',
+  SiteName: 'Fundacion Bienestar Bolivia',
+  defaultDescription: 'Fundacion Bienestar Bolivia con la mision de contribuir de forma integral a mejorar la salud y calidad de vida de las comunidades mediante el desarrollo y ejecucion de diversos proyectos y programas de salud, educacion y deporte',
 };
   
 export const blogSetting = {
