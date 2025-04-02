@@ -84,20 +84,6 @@ const textColor = getTextColor(background);
                <h2 class='text-secondary' data-aos="fade-up">Comprendimos que teníamos que ir lejos para entender…</h2>
                 
                 {description && <p class:list={["mt-6 text-justify text-base opacity-90", textColor]} data-aos="fade-up">Y así lo hicimos, fuimos a esas comunidades para conocer y entender sus motivaciones, necesidades, carencias, expectativas y aspiraciones; fuimos y caminamos por sus calles…</p>}
-                
-                {buttons.length > -1 && (
-                    <div class="flex flex-wrap gap-5 mt-8" data-aos="fade-up">
-                        {buttons.map((button) => (
-                            <Button
-                                href={button.link}
-                                target={button.target || '_self'}
-                                variant={button.variant || 'primary'}
-                            >
-                                {button.text}
-                            </Button>
-                        ))}
-                    </div>
-                )}
             </div>
 
             <!-- Image Side (right position) -->
@@ -141,19 +127,6 @@ const textColor = getTextColor(background);
                 
                 {description && <p class:list={["mt-6 text-justify text-base opacity-90", textColor]} data-aos="fade-up">Ayudar con Acciones directas y especificas, ayudar con acciones Acertadas.</p>}
                 
-                {buttons.length > -1 && (
-                    <div class="flex flex-wrap gap-5 mt-8" data-aos="fade-up">
-                        {buttons.map((button) => (
-                            <Button
-                                href={button.link}
-                                target={button.target || '_self'}
-                                variant={button.variant || 'primary'}
-                            >
-                                {button.text}
-                            </Button>
-                        ))}
-                    </div>
-                )}
             </div>
 
             <!-- Image Side (right position) -->
