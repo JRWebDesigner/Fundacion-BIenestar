@@ -48,7 +48,13 @@ const bgColor = getBackgroundColor(background);
 const textColor = getTextColor(background);
 ---
 <section class:list={["relative", bgColor, paddingClass]}>
-    <div class="site-container px-4">
+  <div class='w-[70%] mx-auto text-center text-xl my-10 font-semibold'>
+    <p>
+    En nuestra experiencia en el desarrollo y aplicación de programas de salud dirigidos al sector privado, mediante nuestro brazo social y con el aporte de personas comprometidas con brindar apoyo pudimos ayudar y beneficiar a muchas familias de escasos recursos, sin embargo, nos dimos cuenta de que lo que veníamos haciendo eran minúsculas partículas de arena en un océano de necesidades, carencias y falta de accesibilidad. <br/>
+    Con los años empezamos a alzar la vista y nos dimos cuenta de que era necesario ver lejos para ver cerca, ir lejos para ayudar de cerca.
+    </p>
+  </div>
+  <div class="site-container px-4 flex flex-col gap-8">
         <div class:list={[
             "flex flex-col md:flex-row gap-16 items-center",
             "",
@@ -75,12 +81,12 @@ const textColor = getTextColor(background);
                         background={background} 
                     />
                 )}
-                <h2 class={textColor} data-aos="fade-up">{headline}</h2>
-                {subheadline && <h3 class:list={["mt-4 text-h5", textColor]} data-aos="fade-up">{subheadline}</h3>}
-                {description && <p class:list={["mt-6 text-base opacity-90", textColor]} data-aos="fade-up">{description}</p>}
+               <h2 class='text-secondary' data-aos="fade-up">Comprendimos que teníamos que ir lejos para entender…</h2>
                 
-                {buttons.length > 0 && (
-                    <div class="flex flex-wrap gap-4 mt-8" data-aos="fade-up">
+                {description && <p class:list={["mt-6 text-justify text-base opacity-90", textColor]} data-aos="fade-up">Y así lo hicimos, fuimos a esas comunidades para conocer y entender sus motivaciones, necesidades, carencias, expectativas y aspiraciones; fuimos y caminamos por sus calles…</p>}
+                
+                {buttons.length > -1 && (
+                    <div class="flex flex-wrap gap-5 mt-8" data-aos="fade-up">
                         {buttons.map((button) => (
                             <Button
                                 href={button.link}
@@ -103,7 +109,64 @@ const textColor = getTextColor(background);
                         class="w-full h-full object-contain"
                     />
                 </div>
+                )}
+            </div>
+            <div class:list={[
+            "flex flex-col md:flex-row-reverse gap-16 items-center",
+            "",
+            imagePosition === 'left' ? 'md:grid-cols-[1fr_1fr]' : ''
+        ]}>
+            <!-- Image Side -->
+            {imagePosition === 'left' && (
+                <div class="relative w-[70%] overflow-hidden rounded-[var(--border-radius-base)] border border-black">
+                    <img
+                        src="./hero5.jpg"
+                        alt='fundacion bienestar bolivia'
+                        width={1000}
+                        height={600}
+                        class="w-full h-full object-cover"
+                    />
+                </div>
+            )}
+
+            <!-- Content Side -->
+            <div class="max-w-[500px]">
+                {eyebrow && (
+                    <Eyebrow 
+                        text={eyebrow} 
+                        background={background} 
+                    />
+                )}
+                <h2 class='text-secondary' data-aos="fade-up">Nuestro objetivo, la tripple A...</h2>
+                
+                {description && <p class:list={["mt-6 text-justify text-base opacity-90", textColor]} data-aos="fade-up">Ayudar con Acciones directas y especificas, ayudar con acciones Acertadas.</p>}
+                
+                {buttons.length > -1 && (
+                    <div class="flex flex-wrap gap-5 mt-8" data-aos="fade-up">
+                        {buttons.map((button) => (
+                            <Button
+                                href={button.link}
+                                target={button.target || '_self'}
+                                variant={button.variant || 'primary'}
+                            >
+                                {button.text}
+                            </Button>
+                        ))}
+                    </div>
+                )}
+            </div>
+
+            <!-- Image Side (right position) -->
+            {imagePosition === 'right' && (
+                <div class="relative w-[70%] overflow-hidden rounded-[var(--border-radius-base)] border border-black" data-aos="fade-up" data-aos-delay="100">
+                    <img
+                        src="./hero5.jpg"
+                        alt='fundacion bienestar bolivia'
+                        class="w-full h-full object-contain"
+                    />
+                </div>
             )}
         </div>
-    </div>
+  </div>
+
 </section>

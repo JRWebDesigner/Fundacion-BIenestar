@@ -21,17 +21,17 @@ export const featureLists: Record<string, FeatureList> = {
             {
                 icon: './salud.jpeg',
                 title: 'Salud',
-                description: 'campañas medicas, atención visual, programas de salud integrales'
+                description: 'Con proyectos y programas en diversos campos de la salud y bienestar'
             },
             {
                 icon: './educacion.jpeg',
                 title: 'Educacion',
-                description: 'Becas, capacitacion, equipamento escolar'
+                description: 'Generamos espacios de capacitación, educación y potenciamiento de habilidades'
             },
             {
                 icon: './deportes.jpeg',
                 title: 'Deportes',
-                description: 'Actividades recreativas para ninos y jovenes'
+                description: 'Complementamos nuestros programas incentivando y apoyando a la formación de  atletas comunitarios'
             },
             
         ]
