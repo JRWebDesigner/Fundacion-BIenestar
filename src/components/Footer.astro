@@ -1,6 +1,5 @@
 ---
 import { footerMenu} from '@data/menu';
-import Logo from '@components/Logo.astro';
 import Button from '@components/ui/Button.astro';
 import { siteConfig } from '@data/config';
 
@@ -41,13 +40,12 @@ const currentYear = new Date().getFullYear();
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 pb-8 border-b border-background-light place-items-center">
       <div class="col-span-1">
-        <img class='w-[170px] md:w-[350px]' src='' alt='logo' />
+        <img class='w-[170px] md:w-[350px]' src='./fivicon-32x32.png' alt='logo' />
         <p class="mt-4 text-white">
           Bienestar para todos, acciones que cambian vidas
         </p>
       </div>
       <div class="col-span-1">
-        <h3 class="text-lg font-semibold mb-4">Menu</h3>
         <div>
           <h4>Nuestra direccion</h4>
           <iframe class='hidden md:flex rounded-3xl' src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3824.8604765017935!2d-68.078985!3d-16.533140000000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTbCsDMxJzU5LjMiUyA2OMKwMDQnNDQuNCJX!5e0!3m2!1ses-419!2sbo!4v1743685879543!5m2!1ses-419!2sbo" width="400" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
