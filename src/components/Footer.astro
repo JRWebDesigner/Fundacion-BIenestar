@@ -39,26 +39,21 @@ const currentYear = new Date().getFullYear();
 <footer id='contacto' class={`bg-secondary text-white pb-small ${cta.hideCta ? 'pt-large' : ''}`}>
   <div class="site-container mx-auto px-4">
 
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-8 pb-8 border-b border-background-light">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 pb-8 border-b border-background-light place-items-center">
       <div class="col-span-1">
         <Logo variant="footer" />
         <p class="mt-4 text-white">
           Bienestar para todos, acciones que cambian vidas
         </p>
       </div>
-      
       <div class="col-span-1">
         <h3 class="text-lg font-semibold mb-4">Menu</h3>
-        <nav>
+        <div>
           <h4>Nuestra direccion</h4>
-          <iframe class='hidden md:flex' src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3824.8604765017935!2d-68.078985!3d-16.533140000000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTbCsDMxJzU5LjMiUyA2OMKwMDQnNDQuNCJX!5e0!3m2!1ses-419!2sbo!4v1743685879543!5m2!1ses-419!2sbo" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <iframe class='hidden md:flex rounded-3xl' src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3824.8604765017935!2d-68.078985!3d-16.533140000000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTbCsDMxJzU5LjMiUyA2OMKwMDQnNDQuNCJX!5e0!3m2!1ses-419!2sbo!4v1743685879543!5m2!1ses-419!2sbo" width="400" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
           <iframe class='md:hidden' src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3824.8604765017935!2d-68.078985!3d-16.533140000000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTbCsDMxJzU5LjMiUyA2OMKwMDQnNDQuNCJX!5e0!3m2!1ses-419!2sbo!4v1743685879543!5m2!1ses-419!2sbo" width="300" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
-        </nav>
-      </div>
-      <div className='col-span-1'>
-        <h4>Redes Sociales</h4>
-        <a href="https://www.facebook.com/share/19teVsGE1J/" target='blank' class="flex justify-center items-center gap-2"> <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="#ffffff"  class="icon icon-tabler icons-tabler-filled icon-tabler-brand-facebook"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M18 2a1 1 0 0 1 .993 .883l.007 .117v4a1 1 0 0 1 -.883 .993l-.117 .007h-3v1h3a1 1 0 0 1 .991 1.131l-.02 .112l-1 4a1 1 0 0 1 -.858 .75l-.113 .007h-2v6a1 1 0 0 1 -.883 .993l-.117 .007h-4a1 1 0 0 1 -.993 -.883l-.007 -.117v-6h-2a1 1 0 0 1 -.993 -.883l-.007 -.117v-4a1 1 0 0 1 .883 -.993l.117 -.007h2v-1a6 6 0 0 1 5.775 -5.996l.225 -.004h3z" /></svg>Facebook</a>
+        </div>
       </div>
     </div>
     <div class='flex flex-col md:flex-row justify-center items-center gap-10'>
@@ -89,6 +84,14 @@ const currentYear = new Date().getFullYear();
           Celular:
         </h4>
         <a class='text-sm' href="phone:(591)74074593">(591)74074593</a>
+      </div>
+      <div>
+        <div className='flex justify-center items-center'>
+        <h4>Redes Sociales</h4>
+        <a href="https://www.facebook.com/share/19teVsGE1J/" target='blank' class="flex justify-center items-center gap-2"> <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="#ffffff"  class="icon icon-tabler icons-tabler-filled icon-tabler-brand-facebook"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M18 2a1 1 0 0 1 .993 .883l.007 .117v4a1 1 0 0 1 -.883 .993l-.117 .007h-3v1h3a1 1 0 0 1 .991 1.131l-.02 .112l-1 4a1 1 0 0 1 -.858 .75l-.113 .007h-2v6a1 1 0 0 1 -.883 .993l-.117 .007h-4a1 1 0 0 1 -.993 -.883l-.007 -.117v-6h-2a1 1 0 0 1 -.993 -.883l-.007 -.117v-4a1 1 0 0 1 .883 -.993l.117 -.007h2v-1a6 6 0 0 1 5.775 -5.996l.225 -.004h3z" /></svg>Facebook</a>
+        <a href="https://www.facebook.com/share/19teVsGE1J/" target='blank' class="flex justify-center items-center gap-2"> <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="#ffffff"  class="icon icon-tabler icons-tabler-filled icon-tabler-brand-facebook"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M18 2a1 1 0 0 1 .993 .883l.007 .117v4a1 1 0 0 1 -.883 .993l-.117 .007h-3v1h3a1 1 0 0 1 .991 1.131l-.02 .112l-1 4a1 1 0 0 1 -.858 .75l-.113 .007h-2v6a1 1 0 0 1 -.883 .993l-.117 .007h-4a1 1 0 0 1 -.993 -.883l-.007 -.117v-6h-2a1 1 0 0 1 -.993 -.883l-.007 -.117v-4a1 1 0 0 1 .883 -.993l.117 -.007h2v-1a6 6 0 0 1 5.775 -5.996l.225 -.004h3z" /></svg>Instagram</a>
+<a href="https://www.facebook.com/share/19teVsGE1J/" target='blank' class="flex justify-center items-center gap-2"> <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="#ffffff"  class="icon icon-tabler icons-tabler-filled icon-tabler-brand-facebook"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M18 2a1 1 0 0 1 .993 .883l.007 .117v4a1 1 0 0 1 -.883 .993l-.117 .007h-3v1h3a1 1 0 0 1 .991 1.131l-.02 .112l-1 4a1 1 0 0 1 -.858 .75l-.113 .007h-2v6a1 1 0 0 1 -.883 .993l-.117 .007h-4a1 1 0 0 1 -.993 -.883l-.007 -.117v-6h-2a1 1 0 0 1 -.993 -.883l-.007 -.117v-4a1 1 0 0 1 .883 -.993l.117 -.007h2v-1a6 6 0 0 1 5.775 -5.996l.225 -.004h3z" /></svg>Youtube</a>
+      </div>
       </div>
     </div>
     <div class="mt-8 flex flex-col md:flex-row justify-between items-center">
