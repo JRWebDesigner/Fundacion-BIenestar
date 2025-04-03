@@ -1,19 +1,46 @@
+---
+// Importa los íconos directamente (opcional, si usas una CDN o SVG)
+const isPlaying = false; // Estado simple (sin React)
+---
+
+<div class="audio-player">
+  <button id="audio-button" class='p-5 rounded-full bg-secondary'>
+    <span id="audio-icon">🔇</span> <!-- Icono inicial -->
+  </button>
+
+  <audio id="bg-audio" loop>
+    <source src="/audio.mpeg" type="audio/mpeg" />
+  </audio>
+</div>
+
 <script>
-    let audio = new Audio('/audio.mpeg');
-    audio.loop = true;
-    audio.volume = 0.5;
-  
-    function playAudio() {
-      audio.play().catch(error => console.log("Autoplay bloqueado"));
+  const button = document.getElementById('audio-button');
+  const audio = document.getElementById('bg-audio');
+  const icon = document.getElementById('audio-icon');
+
+  let isPlaying = false;
+
+  button.addEventListener('click', () => {
+    if (isPlaying) {
+      audio.pause();
+      icon.textContent = '🔇';
+    } else {
+      audio.play().catch(e => console.error("Error al reproducir:", e));
+      icon.textContent = '🔊';
     }
-  
-    // Intentar reproducir el audio apenas cargue la página
-    window.addEventListener('load', playAudio);
-  
-    // Si el autoplay es bloqueado, iniciar con el primer clic o toque
-    document.addEventListener('click', () => {
-      if (audio.paused) {
-        playAudio();
-      }
-    });
-  </script>
+    isPlaying = !isPlaying;
+  });
+</script>
+
+<style>
+  .audio-player {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+  }
+  button {
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+  }
+</style>

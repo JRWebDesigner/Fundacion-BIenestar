@@ -72,11 +72,10 @@ const fullCanonicalUrl = new URL(canonicalPath, siteConfig.siteUrl).toString();
 	</head>
 	<body data-theme={theme}>
 		<Header />
-		<Audio />
 		<slot />
 		<Footer footerCta={footerCta} />
 		<ThemeSwitcher />
-		
+		<Audio />
 		<script>
 			import AOS from 'aos';
 			AOS.init({
