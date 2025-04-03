@@ -3,6 +3,7 @@ import Layout from '@layouts/Layout.astro';
 import Hero from '@components/sections/Hero.astro';
 import SplitPanel from '@components/sections/SplitPanel.astro';
 import Features from '@components/sections/Features.astro';
+import Donde from '@components/Donde.astro';
 import { featureLists } from '@data/features';
 import { statsLists } from '@data/stats';
 import comunidad from '../assets/images/home/comunidad.jpg';
@@ -111,52 +112,7 @@ const recentPostsSection = {
     <Hero content={heroContent} />
     <Features content={featuresSection} padding="base" background="light" />
     <SplitPanel content={styleGuideSection} imagePosition="right" background="light" padding="base" />
-    <div class="pt-10 px-20" id='sobre-nosotros'>
-        <h2>
-            Sobre Nosotros    
-        </h2>
-        <p>
-            En nuestra experiencia en el desarrollo e implementación de programas de salud visual ocupacional, dirigidos al sector privado, ayudamos a muchas familias de bajos ingresos... pero nos dimos cuenta de que no era suficiente. Había comunidades donde las necesidades eran aún mayores, y ahí es donde decidimos actuar
-        </p>
-        <p>
-            Todo comenzó cuando entendimos que teníamos que ir lejos para ver cerca. Fuimos a las comunidades, caminamos por sus calles, escuchamos a sus habitantes y descubrimos sus necesidades reales.
-        </p>
-        <p>
-            Así nació la Fundación Bienestar, con el compromiso de mejorar la calidad de vida de las comunidades a través de salud, educación y deporte.
-            </p> 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 p-10">
-            <div>
-                <h3>
-                    Mision
-                </h3>
-                <p>
-                    Contribuir de forma integral a mejorar la salud y calidad de vida de las comunidades mediante el desarrollo y ejecución de diversos proyectos en salud, educación y deporte.
-                </p>
-            </div>
-            <div>
-                <h3>
-                    Vision
-                </h3>
-                <p>
-                    Convertirnos en una entidad referente en el desarrollo y empoderamiento de comunidades en términos de salud y bienestar.
-                </p>
-            </div>
-        </div>
-        <section id='donde-estuvimos' class='text-center my-10'>
-            <h2>
-                Donde Estuvimos
-            </h2>     
-            <div class='flex justify-around items-center flex-wrap gap-8'>
-                <img class='md:max-w-[400px]' src="./foto1.png" alt="">
-                <img class='md:max-w-[400px]' src="./foto2jpeg" alt="">
-                <img class='md:max-w-[400px]' src="./foto3.jpeg" alt="">
-                <img class='md:max-w-[400px]' src="./foto4.jpeg" alt="">
-                <img class='md:max-w-[400px]' src="./foto5.jpeg" alt="">
-                <img class='md:max-w-[400px]' src="./foto6.jpeg" alt="">
-                <img class='md:max-w-[400px]' src="./foto7.jpeg" alt="">
-            </div>       
-        </section>
-    </div>
+    <Donde />
     <audio class='opacity-0' autoplay loop>
         <source src="/audio.mpeg" type="audio/mpeg">
         Tu navegador no soporta el audio.

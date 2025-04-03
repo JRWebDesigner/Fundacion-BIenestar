@@ -36,26 +36,8 @@ const cta = footerCta || defaultCta;
 const currentYear = new Date().getFullYear();
 ---
 
-<footer id='contacto' class={`bg-black text-white pb-small ${cta.hideCta ? 'pt-large' : ''}`}>
+<footer id='contacto' class={`bg-secondary text-white pb-small ${cta.hideCta ? 'pt-large' : ''}`}>
   <div class="site-container mx-auto px-4">
-    {!cta.hideCta && (
-      <div class="text-center border-b border-background-light mb-12 py-small">
-        <h2 class="text-3xl font-bold mb-4" data-aos="fade-up">{cta.title}</h2>
-        <p class="text-white mb-6 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
-          {cta.description}
-        </p>
-        <Button 
-          href={cta.button.link} 
-          variant="ghostLight"
-          size="lg"
-          data-aos="fade-up"
-          data-aos-delay="200"
-          {...(cta.button.target && { target: cta.button.target })}
-        >
-          {cta.button.text}
-        </Button>
-      </div>
-    )}
 
     <div class="grid grid-cols-1 md:grid-cols-4 gap-8 pb-8 border-b border-background-light">
       <div class="col-span-1">
