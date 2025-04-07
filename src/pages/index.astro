@@ -1,7 +1,7 @@
 ---
 import Layout from '@layouts/Layout.astro';
 import Hero from '@components/sections/Hero.astro';
-import Donde from '@components/Donde.astro';
+import Features from '@components/sections/Features.astro';
 import { featureLists } from '@data/features';
 import { statsLists } from '@data/stats';
 
@@ -76,8 +76,21 @@ const recentPostsSection = {
         variant: "primary" as const
     }
 }
+const featuresSection = {
+    eyebrow: "Fundacion Bienestar",
+    title: "Bienestar para todos, acciones que transforman vidas",
+    description: "Con la mision de contribuir de forma integral a mejorar la salud y calidad de vida de las comunidades mediante el desarrollo y ejecucion de diversos proyectos y programas de salud, educacion y deporte",
+    features: featureLists.main.features,
+    button: {
+        text: "Mas informacion",
+        link: "/Quienes-somos",
+        variant: "primary" as const
+    }
+}
+
 ---
 
 <Layout footerCta={FooterCta} title={seoTitle} description={seoDescription}>
     <Hero content={heroContent} />
+<Features content={featuresSection} padding="base" background="light" /> 
 </Layout>
