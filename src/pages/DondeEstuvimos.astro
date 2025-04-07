@@ -4,6 +4,7 @@ import Layout from '../layouts/Layout.astro';
 import SplitPanel from '@components/sections/SplitPanel.astro';
 import { featureLists } from '@data/features';
 import comunidad from '../assets/images/home/comunidad.jpg';
+import Donde from '@components/Donde.astro';
 
 
 const featuresSection = {
@@ -36,6 +37,6 @@ const styleGuideSection = {
 }
 ---
 <Layout title="quienes somos">
-    <Features content={featuresSection} padding="base" background="light" />
-    <SplitPanel content={styleGuideSection} imagePosition="right" background="light" padding="base" />
+    <Donde />
+
 </Layout>
