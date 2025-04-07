@@ -6,18 +6,7 @@ import { featureLists } from '@data/features';
 import comunidad from '../assets/images/home/comunidad.jpg';
 
 
-const featuresSection = {
-    eyebrow: "Fundacion Bienestar",
-    title: "Bienestar para todos, acciones que transforman vidas",
-    description: "Con la mision de contribuir de forma integral a mejorar la salud y calidad de vida de las comunidades mediante el desarrollo y ejecucion de diversos proyectos y programas de salud, educacion y deporte",
-    features: featureLists.main.features,
-    button: {
-        text: "Mas informacion",
-        link: "/Quienes-somos",
-        variant: "primary" as const
-    }
-}
-
+   
 const styleGuideSection = {
     eyebrow: "Fundacion Bienestar",
     headline: "Entendimos que teniamos que ir lejos para entender",
@@ -34,8 +23,9 @@ const styleGuideSection = {
         }
     ]
 }
+
 ---
 <Layout title="quienes somos">
-    <Features content={featuresSection} padding="base" background="light" />
+<div class="mt-[70px]"></div>
     <SplitPanel content={styleGuideSection} imagePosition="right" background="light" padding="base" />
 </Layout>
