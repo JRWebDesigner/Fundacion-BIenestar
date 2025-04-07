@@ -2,13 +2,13 @@
 
 export const headerMenu = [
     { name: 'Inicio', link: '/'},
-    { name: 'Quienes Somos', link: '/Quienes-somos' },
+    { name: 'Quienes Somos', link: '/Quienessomos' },
     { name: 'Donde estuvimos', link: '/DondeEstuvimos' }
 ];
 
 export const footerMenu = [
     { name: 'Inicio', link: '/'},
-    { name: 'Quienes Somos', link: '/Quienes-somos' },
+    { name: 'Quienes Somos', link: '/Quienessomos' },
     { name: 'Donde estuvimos', link: '/DondeEstuvimos' }
 ];
 
