@@ -34,13 +34,7 @@ export default defineConfig({
       lineNumbersPrefix: ''
     }
   },
-  integrations: [sitemap({
-    changefreq: 'weekly',
-    priority: 0.7,
-    lastmod: new Date(),
-    filter: (page) => !page.includes('/404'), // Only exclude 404 page
-    entryLimit: 10000, // Increase entry limit if you have many pages
-  }), sanity(), react()],
+ 
   image: {
     // Allow all remote patterns (https and http)
     remotePatterns: [

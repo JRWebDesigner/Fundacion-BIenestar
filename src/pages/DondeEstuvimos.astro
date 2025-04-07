@@ -1,42 +1,14 @@
 ---
-import Features from '@components/sections/Features.astro';
+
 import Layout from '../layouts/Layout.astro';
-import SplitPanel from '@components/sections/SplitPanel.astro';
-import { featureLists } from '@data/features';
-import comunidad from '../assets/images/home/comunidad.jpg';
+
 import Donde from '@components/Donde.astro';
 
 
-const featuresSection = {
-    eyebrow: "Fundacion Bienestar",
-    title: "Bienestar para todos, acciones que transforman vidas",
-    description: "Con la mision de contribuir de forma integral a mejorar la salud y calidad de vida de las comunidades mediante el desarrollo y ejecucion de diversos proyectos y programas de salud, educacion y deporte",
-    features: featureLists.main.features,
-    button: {
-        text: "Mas informacion",
-        link: "/Quienes-somos",
-        variant: "primary" as const
-    }
-}
 
-const styleGuideSection = {
-    eyebrow: "Fundacion Bienestar",
-    headline: "Entendimos que teniamos que ir lejos para entender",
-    description: "Fuimos a esas comunidades para conocer y entender sus motivaciones, sus necesidades, sus carencias, sus expectativas y aspiraciones",
-    image: {
-        src: comunidad,
-        alt: "Featured image"
-    },
-    buttons: [
-        {
-            text: "Contactate ahora",
-            link: "/#contacto",
-            variant: "primary" as const
-        }
-    ]
-}
 ---
 <Layout title="quienes somos">
+  <div class="mt-[70px]" 
     <Donde />
-
+  </div>
 </Layout>
