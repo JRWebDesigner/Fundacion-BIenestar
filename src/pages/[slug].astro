@@ -4,13 +4,16 @@ import Layout from '@layouts/Layout.astro';
 import TitleDE from "@components/TitleDE.astro";
 import { sanityClient, urlFor } from "../lib/sanity";
 
-
 export async function getStaticPaths() {
-  const items = await sanityClient.fetch(`*[_type == "donde"]{ slug }`);
+  const items = await sanityClient.fetch(`
+    *[_type == "donde" && defined(slug.current) && !(_id in path("drafts.**"))]{
+      "slug": slug.current
+    }
+  `);
   
-  return items.map(item => ({
-    params: { slug: item.slug.current },
-    props: {} // Opcional: pasar props adicionales
+  return items.map(({ slug }) => ({
+    params: { slug },
+    props: {}
   }));
 }
 
