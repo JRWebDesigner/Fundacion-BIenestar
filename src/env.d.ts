@@ -1,2 +1,3 @@
-<reference types="astro/client" />
-<reference types="@sanity/astro/module" />
+// ./src/env.d.ts
+ <reference types="astro/client" />
+ <reference types="@sanity/astro/module" />="@sanity/astro/module" />
