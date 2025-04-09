@@ -1,14 +1,12 @@
 import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
-
 import sitemap from '@astrojs/sitemap';
-
 import sanity from '@sanity/astro';
 import react from '@astrojs/react';
-
+import vercel from '@astrojs/vercel/static'; // Aquí agregamos el adapter de Vercel
 
 export default defineConfig({
-output: 'static',
+  output: 'static',
   vite: {
     plugins: [tailwindcss()],
     css: {
@@ -24,7 +22,6 @@ output: 'static',
   },
 
   image: {
-    // Allow all remote patterns (https and http)
     remotePatterns: [
       {
         protocol: "https"
@@ -35,11 +32,16 @@ output: 'static',
     ]
   },
 
-  integrations: [sanity({
-    projectId: '7xk0i7va',
-    dataset: 'production',
-    useCdn: false, // See note on using the CDN
-    apiVersion: "2025-01-28",
-    studioBasePath: '/studio', // insert the current date to access the latest version of the API
-  }), react()]
+  integrations: [
+    sanity({
+      projectId: '7xk0i7va',
+      dataset: 'production',
+      useCdn: false,
+      apiVersion: "2025-01-28",
+      studioBasePath: '/studio',
+    }),
+    react()
+  ],
+  
+  adapter: vercel(), // Esto es para usar el adapter estático de Vercel
 });
