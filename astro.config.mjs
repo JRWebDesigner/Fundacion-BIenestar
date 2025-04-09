@@ -11,6 +11,7 @@ const site = process.env.PUBLIC_SITE_URL || 'http://localhost:4321';
 
 export default defineConfig({
   site,
+
   vite: {
     plugins: [tailwindcss()],
     css: {
@@ -24,6 +25,7 @@ export default defineConfig({
       include: ['aos']
     }
   },
+
   markdown: {
     shikiConfig: {
       theme: 'github-dark',
@@ -34,7 +36,7 @@ export default defineConfig({
       lineNumbersPrefix: ''
     }
   },
- 
+
   image: {
     // Allow all remote patterns (https and http)
     remotePatterns: [
@@ -45,5 +47,13 @@ export default defineConfig({
         protocol: "http"
       }
     ]
-  }
+  },
+
+  integrations: [sanity({
+    projectId: '7xk0i7va',
+    dataset: 'production',
+    useCdn: false, // See note on using the CDN
+    apiVersion: "2025-01-28",
+    studioBasePath: '/studio', // insert the current date to access the latest version of the API
+  }), react()]
 });
