@@ -3,10 +3,8 @@ import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
 import sanity from '@sanity/astro';
 import react from '@astrojs/react';
-import vercel from '@astrojs/vercel/static'; // Aquí agregamos el adapter de Vercel
 
 export default defineConfig({
-  output: 'static',
   vite: {
     plugins: [tailwindcss()],
     css: {
@@ -42,6 +40,5 @@ export default defineConfig({
     }),
     react()
   ],
-  
-  adapter: vercel(), // Esto es para usar el adapter estático de Vercel
+
 });

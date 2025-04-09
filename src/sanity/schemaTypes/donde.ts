@@ -7,36 +7,42 @@ export const donde = defineType({
     defineField({
       name: "name",
       type: "string",
+      validation: Rule => Rule.required(),
     }),
     defineField({
       name: "slug",
       type: "slug",
-      title:"enlace",
+      title: "Enlace",
       options: {
         source: "name",
         maxLength: 96,
       },
+      validation: Rule => Rule.required(),
     }),
     defineField({
-      name: "image",
+      name: "coverImage",
       type: "image",
-      title:'imagen de portada',
-      options: {
-        hotspot: true,
-      },
+      title: 'Imagen principal',
+      options: { hotspot: true },
       fields: [
-        {
-          name: "alt",
-          type: "string",
-          title: "Alternative Text",
-        },
+        { name: "alt", type: "string", title: "Texto alternativo" },
+      ],
+    }),
+    // 👇 Array de multimedia ilimitado
+    defineField({
+      name: "gallery",
+      type: "array",
+      title: "Galería multimedia",
+      of: [
+        { type: "image", options: { hotspot: true } }, // Imágenes
+        { type: "file", options: { accept: "video/*" } }, // Videos
       ],
     }),
   ],
   preview: {
     select: {
       title: "name",
-      media: "image",
+      media: "coverImage",
     },
   },
 });

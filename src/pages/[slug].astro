@@ -1,0 +1,66 @@
+---
+// src/pages/donde/[slug].astro
+import Layout from '@layouts/Layout.astro';
+import TitleDE from "@components/TitleDE.astro";
+import { sanityClient, urlFor } from "../lib/sanity";
+
+
+export async function getStaticPaths() {
+  const items = await sanityClient.fetch(`*[_type == "donde"]{ slug }`);
+  
+  return items.map(item => ({
+    params: { slug: item.slug.current },
+    props: {} // Opcional: pasar props adicionales
+  }));
+}
+
+const { slug } = Astro.params;
+
+const query = `*[_type == "donde" && slug.current == $slug][0]{
+  name,
+  coverImage,
+  description,
+  gallery[]{
+    _type == "image" => {
+      "asset": asset->,
+      "alt": alt,
+      "_key": _key,
+      "_type": "image" // Forzamos el tipo
+    },
+    _type == "file" => @->{
+      "url": url,
+      "extension": extension,
+      "_key": _key,
+      "_type": "file" // Forzamos el tipo
+    }
+  }
+}`;
+
+const item = await sanityClient.fetch(query, { slug });
+
+if (!item) {
+  return Response.redirect("/404", 404);
+}
+---
+<Layout title={item.name}>
+  <TitleDE 
+    title={item.name} 
+    image={item.coverImage ? urlFor(item.coverImage).url() : './default-image.jpg'} 
+  />
+
+   <div class="grid grid-cols-2 gap-7 md:grid-cols-3 p-10 place-items-center">
+  {item.gallery?.map((media) => {
+    return media._type === "image" ? (
+      <img 
+        src={urlFor(media.asset).width(800).url()} 
+        alt={media.alt || "Imagen de galería"}
+        class="w-full h-auto object-cover"
+      />
+    ) : (
+      <video controls class="w-full">
+        <source src={media.url} type={`video/${media.extension}`} />
+      </video>
+    )
+  })}
+</div>
+</Layout>

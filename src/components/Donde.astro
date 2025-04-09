@@ -1,28 +1,157 @@
-<section id='donde-estuvimos' class='mt-[80px]'>
-  <div class="flex flex-col justify-center items-center gap-8 md:gap-12">
-    <a href='Zongo' class="p-2 rounded-lg border border-black w-[100px] h-[100px] md:w-[250px] md:h-[250px] flex justify-center items-center flex-col bg-background/90">
-      <img class="w-full h-full" src="l1.jpg" alt="Línea 1" />
-    </a>
+---
+// src/components/LugaresGrid.astro
+import { client } from '../lib/sanity';
+import { sanityClient, urlFor } from "../lib/sanity";
+
+const query = `*[_type == "donde"]{
+  name,
+  "slug": slug.current,
+  coverImage
+}`;
+
+const lugares = await sanityClient.fetch(query);
+
+// Lugares estáticos adicionales
+const lugaresEstaticos = [
+  { name: "Zongo", slug: "Zongo", coverImage: { url: "l1.jpg", alt: "Línea 1" } },
+  { name: "Zongo Alto y Bajo", slug: "ZongoAltoyBajo", coverImage: { url: "l2.jpg", alt: "Línea 2" } },
+  { name: "Testimonios", slug: "Testimonios", coverImage: { url: "l3.jpg", alt: "Línea 3" } },
+  { name: "Zongo Alto y Bajo", slug: "ZongoAltoyBajo", coverImage: { url: "l4.jpg", alt: "Línea 4" } },
+  { name: "Capellani", slug: "Capellani", coverImage: { url: "l5.jpg", alt: "Línea 5" } },
+  { name: "Tangani", slug: "Tangani", coverImage: { url: "l6.jpg", alt: "Línea 6" } }
+];
+
+// Combinar ambos arrays
+const todosLugares = [...lugares, ...lugaresEstaticos];
+---
+
+<style>
+  .galeria-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  .fila-superior {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .fila-media {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    width: 100%;
+  }
+
+  .fila-inferior {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    gap: 1.5rem;
+  }
+
+  .lugar-card {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    aspect-ratio: 1/1;
+  }
+
+  .lugar-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  }
+
+  .lugar-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  .lugar-card:hover .lugar-img {
+    transform: scale(1.05);
+  }
+
+  .lugar-nombre {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    color: white;
+    padding: 1rem;
+    text-align: center;
+    font-weight: 500;
+  }
+
+  @media (max-width: 768px) {
+    .fila-media {
+      grid-template-columns: 1fr;
+    }
     
-    <div class="grid grid-cols-3 gap-5 md:gap-12">
-      <a href='ZongoAltoyBajo' class="p-2 rounded-lg border border-black w-[100px] h-[100px] md:w-[250px] md:h-[250px] flex justify-center items-center flex-col bg-background/90">
-        <img class="w-full h-full" src="l2.jpg" alt="Línea 2" />
-      </a>
-      <a href='Testimonios' class="p-2 rounded-lg   w-[100px] h-[100px] md:w-[250px] md:h-[250px] flex justify-center items-center flex-col bg-background/90">
-        <img class="w-full h-full" src="l3.jpg" alt="Línea 3" />
-      </a>
-      <a href='ZongoAltoyBajo ' class="p-2 rounded-lg border border-black w-[100px] h-[100px] md:w-[250px] md:h-[250px] flex justify-center items-center flex-col bg-background/90">
-        <img class="w-full h-full" src="l4.jpg" alt="Línea 4" />
+    .fila-inferior {
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .lugar-card {
+      max-width: 300px;
+    }
+  }
+</style>
+
+<section id='donde-estuvimos' class='mt-[80px] mb-12'>
+  <div class="galeria-container">
+    <!-- Fila superior (centrada) -->
+    <div class="fila-superior">
+      <a href={todosLugares[0]?.slug} class="lugar-card w-[250px] h-[250px] md:w-[300px] md:h-[300px]">
+        <img 
+          class="lugar-img" 
+          src={todosLugares[0]?.coverImage?.url || urlFor(todosLugares[0]?.coverImage)?.url()} 
+          alt={todosLugares[0]?.coverImage?.alt || todosLugares[0]?.name} 
+          loading="lazy"
+        />
+        <div class="lugar-nombre">{todosLugares[0]?.name}</div>
       </a>
     </div>
-    
-    <div class="flex justify-around items-center gap-5 md:gap-12">
-      <a href='Tangani' class="p-2 rounded-lg border border-black w-[100px] h-[100px] md:w-[250px] md:h-[250px]  flex justify-center items-center flex-col bg-background/90">
-        <img class="w-full h-full" src="l6.jpg" alt="Línea 6" />
-      </a>
-      <a href='Capellani' class="p-2 rounded-lg border border-black w-[100px] h-[100px] md:w-[250px] md:h-[250px]  flex justify-center items-center flex-col bg-background/90">
-        <img class="w-full h-full" src="l5.jpg" alt="Línea 5" />
+
+    <!-- Fila media (3 columnas) -->
+    <div class="fila-media">
+      {todosLugares.slice(1, 4).map((lugar) => (
+        <a href={lugar.slug} class="lugar-card">
+          <img 
+            class="lugar-img" 
+            src={lugar.coverImage?.url || urlFor(lugar.coverImage)?.url()} 
+            alt={lugar.coverImage?.alt || lugar.name} 
+            loading="lazy"
+          />
+          <div class="lugar-nombre">{lugar.name}</div>
         </a>
+      ))}
+    </div>
+
+    <!-- Fila inferior (2 columnas) -->
+    <div class="fila-inferior">
+      {todosLugares.slice(4, 6).map((lugar) => (
+        <a href={lugar.slug} class="lugar-card w-[250px] h-[250px] md:w-[300px] md:h-[300px]">
+          <img 
+            class="lugar-img" 
+            src={lugar.coverImage?.url || urlFor(lugar.coverImage)?.url()} 
+            alt={lugar.coverImage?.alt || lugar.name} 
+            loading="lazy"
+          />
+          <div class="lugar-nombre">{lugar.name}</div>
+        </a>
+      ))}
     </div>
   </div>
 </section>
