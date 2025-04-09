@@ -4,6 +4,8 @@ import sitemap from '@astrojs/sitemap';
 import sanity from '@sanity/astro';
 import react from '@astrojs/react';
 
+import vercel from '@astrojs/vercel';
+
 export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
@@ -41,4 +43,5 @@ export default defineConfig({
     react()
   ],
 
+  adapter: vercel(),
 });
