@@ -6,12 +6,9 @@ import sitemap from '@astrojs/sitemap';
 import sanity from '@sanity/astro';
 import react from '@astrojs/react';
 
-// Get the site URL from environment variable or use a default for local development
-const site = process.env.PUBLIC_SITE_URL || 'http://localhost:4321';
 
 export default defineConfig({
-  site,
-
+output: 'static',
   vite: {
     plugins: [tailwindcss()],
     css: {
@@ -23,17 +20,6 @@ export default defineConfig({
     },
     optimizeDeps: {
       include: ['aos']
-    }
-  },
-
-  markdown: {
-    shikiConfig: {
-      theme: 'github-dark',
-      wrap: true,
-      langs: [],
-      transformers: [],
-      showLineNumbers: false,
-      lineNumbersPrefix: ''
     }
   },
 
