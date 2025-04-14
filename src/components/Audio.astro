@@ -1,11 +1,11 @@
----
-// Importa los íconos directamente (opcional, si usas una CDN o SVG)
-const isPlaying = false; // Estado simple (sin React)
----
-
 <div class="audio-player">
   <button id="audio-button" class='p-5 rounded-full bg-secondary'>
-    <span id="audio-icon">🔇</span> <!-- Icono inicial -->
+    <!-- Usamos clases CSS para cambiar los iconos -->
+    <svg id="audio-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-volume-3">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <path d="M6 15h-2a1 1 0 0 1 -1 -1v-4a1 1 0 0 1 1 -1h2l3.5 -4.5a.8 .8 0 0 1 1.5 .5v14a.8 .8 0 0 1 -1.5 .5l-3.5 -4.5" />
+      <path d="M16 10l4 4m0 -4l-4 4" />
+    </svg>
   </button>
 
   <audio id="bg-audio" loop>
@@ -18,17 +18,36 @@ const isPlaying = false; // Estado simple (sin React)
   const audio = document.getElementById('bg-audio');
   const icon = document.getElementById('audio-icon');
 
+  // Iconos como variables para mayor claridad
+  const iconPlay = `
+    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+    <path d="M15 8a5 5 0 0 1 0 8" />
+    <path d="M17.7 5a9 9 0 0 1 0 14" />
+    <path d="M6 15h-2a1 1 0 0 1 -1 -1v-4a1 1 0 0 1 1 -1h2l3.5 -4.5a.8 .8 0 0 1 1.5 .5v14a.8 .8 0 0 1 -1.5 .5l-3.5 -4.5" />
+  `;
+  
+  const iconPause = `
+    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+    <path d="M6 15h-2a1 1 0 0 1 -1 -1v-4a1 1 0 0 1 1 -1h2l3.5 -4.5a.8 .8 0 0 1 1.5 .5v14a.8 .8 0 0 1 -1.5 .5l-3.5 -4.5" />
+    <path d="M16 10l4 4m0 -4l-4 4" />
+  `;
+
   let isPlaying = false;
 
-  button.addEventListener('click', () => {
-    if (isPlaying) {
-      audio.pause();
-      icon.textContent = '🔇';
-    } else {
-      audio.play().catch(e => console.error("Error al reproducir:", e));
-      icon.textContent = '🔊';
+  button.addEventListener('click', async () => {
+    try {
+      if (isPlaying) {
+        await audio.pause();
+        icon.innerHTML = iconPause;
+      } else {
+        await audio.play();
+        icon.innerHTML = iconPlay;
+      }
+      isPlaying = !isPlaying;
+    } catch (error) {
+      console.error("Error al controlar el audio:", error);
+      // Podrías mostrar un mensaje al usuario aquí
     }
-    isPlaying = !isPlaying;
   });
 </script>
 
@@ -37,10 +56,15 @@ const isPlaying = false; // Estado simple (sin React)
     position: fixed;
     bottom: 20px;
     right: 20px;
+    z-index: 50;
   }
   button {
     border: none;
     cursor: pointer;
     font-size: 24px;
+    transition: transform 0.2s;
+  }
+  button:hover {
+    transform: scale(1.1);
   }
 </style>
