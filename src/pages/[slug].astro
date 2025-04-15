@@ -10,7 +10,9 @@ export async function getStaticPaths() {
       "slug": slug.current
     }
   `);
-  
+
+  console.log("Slugs generados:", items);
+
   return items.map(({ slug }) => ({
     params: { slug },
     props: {}
