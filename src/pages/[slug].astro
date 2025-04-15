@@ -28,17 +28,15 @@ const query = `*[_type == "donde" && slug.current == $slug][0]{
       "asset": asset->,
       "alt": alt,
       "_key": _key,
-      "_type": "image" // Forzamos el tipo
+      "_type": "image"
     },
-    _type == "file" => @->{
-      "url": url,
-      "extension": extension,
+    _type == "file" => {
+      "asset": asset->,
       "_key": _key,
-      "_type": "file" // Forzamos el tipo
+      "_type": "file"
     }
   }
 }`;
-
 const item = await sanityClient.fetch(query, { slug });
 
 if (!item) {
@@ -60,9 +58,10 @@ if (!item) {
         class="w-full h-auto object-cover"
       />
     ) : (
-      <video controls class="w-full">
-        <source src={media.url} type={`video/${media.extension}`} />
-      </video>
+      <video controls className="w-full">
+  <source src={media.asset.url} type={`video/${media.asset.extension}`} />
+  Tu navegador no soporta el tag de video.
+</video>
     )
   })}
 </div>
